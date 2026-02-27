@@ -4,3 +4,6 @@ Pods
 
 *.generated.swift
 !Strings.generated.swift
+.build
+Calendr/Editors
+CalendrTests/Mocks
