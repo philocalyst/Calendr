@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CalendrObjC
 
 enum KVCError: LocalizedError {
     case unknownKey(key: String, in: String)
