@@ -5,9 +5,11 @@
 //  Created by Paker on 23/10/2025.
 //
 
+import Foundation
+import Observation
 import RxSwift
 
-@Observable
+@Observation.Observable
 class ReminderEditorViewModel: HostingWindowControllerDelegate {
     
     var title = ""
