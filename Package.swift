@@ -9,11 +9,11 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift", from: "6.10.1"),
-        .package(url: "https://github.com/apple/swift-collections.git", from: "1.3.0"),
-        .package(url: "https://github.com/getsentry/sentry-cocoa.git", from: "8.52.1"),
+        .package(url: "https://github.com/apple/swift-collections", from: "1.3.0"),
         .package(url: "https://github.com/pointfreeco/swift-clocks", from: "1.0.6"),
+        .package(url: "https://github.com/getsentry/sentry-cocoa", from: "8.58.0"),
         .package(url: "https://github.com/sindresorhus/KeyboardShortcuts", exact: "2.4.0"),
-        .package(url: "https://github.com/weichsel/ZIPFoundation", from: "0.9.19")
+        .package(url: "https://github.com/weichsel/ZIPFoundation", from: "0.9.20")
     ],
     targets: [
         .target(
@@ -28,6 +28,7 @@ let package = Package(
                 .product(name: "RxSwift", package: "RxSwift"),
                 .product(name: "RxCocoa", package: "RxSwift"),
                 .product(name: "Collections", package: "swift-collections"),
+                .product(name: "Clocks", package: "swift-clocks"),
                 .product(name: "Sentry", package: "sentry-cocoa"),
                 .product(name: "KeyboardShortcuts", package: "KeyboardShortcuts"),
                 .product(name: "ZIPFoundation", package: "ZIPFoundation")
