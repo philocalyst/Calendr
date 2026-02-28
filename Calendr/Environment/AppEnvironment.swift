@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol AppEnvironmentProviding {
+enum AppEnvironment {
 
-    static var SENTRY_DSN: String? { get }
-}
+    /// Config.xcconfig -> Info.plist
+    private static func get<T>(_ key: String) -> T? {
+        Bundle.main.object(forInfoDictionaryKey: key) as? T
+    }
 
-extension AppEnvironmentProviding {
-
-    static var SENTRY_DSN: String? { nil }
+    static let SENTRY_DSN: String? = get("SENTRY_DSN")
 }

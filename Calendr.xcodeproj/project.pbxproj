@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 71;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -44,6 +44,8 @@
 		343F1B2E2F534401000BFD2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Config/Config.local.xcconfig,
+				Config/Config.xcconfig,
 				Config/Info.plist,
 				Config/swiftgen.yml,
 				Tools/SyncLocalizations.swift,
@@ -164,7 +166,6 @@
 			buildPhases = (
 				345E93BB2CA064A00048EEA4 /* SyncLocalizations */,
 				34651EFA25E1B10000518C5A /* SwiftGen */,
-				3477E70D2C67AC2D008D3844 /* Environment */,
 				347D0F9025952F89002451EC /* Sources */,
 				347D0F9125952F89002451EC /* Frameworks */,
 				347D0F9225952F89002451EC /* Resources */,
@@ -373,26 +374,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -z $CI ]]; then\n    PATH=$PATH:/opt/homebrew/bin\n    if ! [ -x \"$(command -v swiftgen)\" ]; then\n        echo \"error: Please install SwiftGen\"\n        exit -1\n    fi\n    swiftgen --config \"Calendr/Config/swiftgen.yml\"\nfi\n";
 		};
-		3477E70D2C67AC2D008D3844 /* Environment */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${HOME}/.calendr_build_env",
-			);
-			name = Environment;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${SRCROOT}/${TARGET_NAME}/Environment/AppEnvironment.generated.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "CONFIG_FILE=\"${HOME}/.calendr_build_env\"\nUPDATE_FILE=\"${SRCROOT}/${TARGET_NAME}/Environment/AppEnvironment.generated.swift\"\n\necho \"// This file is generated. Do not edit manually.\\n\" > \"$UPDATE_FILE\"\necho \"import Foundation\\n\" >> \"$UPDATE_FILE\"\necho \"enum AppEnvironment: AppEnvironmentProviding {\\n\" >> \"$UPDATE_FILE\"\n\nif [ -f \"$CONFIG_FILE\" ]; then\n    while IFS='=' read -r key value || [ -n \"$key\" ]; do\n        echo \"    static let $key = Optional($value)\" >> \"$UPDATE_FILE\"\n    done < \"$CONFIG_FILE\"\nelse\n    echo \"    // No configuration file found\" >> \"$UPDATE_FILE\"\nfi\n\necho \"\\n}\" >> \"$UPDATE_FILE\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -596,6 +577,8 @@
 		};
 		347D0FB925952F8A002451EC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 343F1A782F534401000BFD2E /* Calendr */;
+			baseConfigurationReferenceRelativePath = Config/Config.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				AUTOMATION_APPLE_EVENTS = YES;
@@ -628,6 +611,8 @@
 		};
 		347D0FBA25952F8A002451EC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 343F1A782F534401000BFD2E /* Calendr */;
+			baseConfigurationReferenceRelativePath = Config/Config.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				AUTOMATION_APPLE_EVENTS = YES;
