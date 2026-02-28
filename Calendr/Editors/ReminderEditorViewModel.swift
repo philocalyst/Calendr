@@ -34,13 +34,11 @@ class ReminderEditorViewModel: HostingWindowControllerDelegate {
         self.calendarService = calendarService
     }
 
-    var onCloseConfirmed: () -> Void = {
-        print("Close editor modal")
-    }
+    var onCloseConfirmed: (() -> Void)?
 
     func confirmClose() {
         isCloseConfirmationVisible = false
-        onCloseConfirmed()
+        onCloseConfirmed?()
     }
 
     func dismissError() {
