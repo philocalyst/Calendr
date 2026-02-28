@@ -44,16 +44,16 @@
 		343F1B2E2F534401000BFD2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Assets/SyncLocalizations.swift,
 				Config/Info.plist,
 				Config/swiftgen.yml,
+				Tools/SyncLocalizations.swift,
 			);
 			target = 347D0F9325952F89002451EC /* Calendr */;
 		};
 		343F1B2F2F534401000BFD2E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Assets/Accessibility.swift,
+				Constants/Accessibility.swift,
 			);
 			target = 34427696269B5CA4004CFE1C /* CalendrUITests */;
 		};
@@ -319,7 +319,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/${TARGET_NAME}/Assets/SyncLocalizations.swift",
+				"${SRCROOT}/${TARGET_NAME}/Tools/SyncLocalizations.swift",
 				"${SRCROOT}/${TARGET_NAME}/Assets/en.lproj/Localizable.strings",
 			);
 			name = SyncLocalizations;
@@ -350,7 +350,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ -z $CI ]]; then\n    swift \"${SRCROOT}/${TARGET_NAME}/Assets/SyncLocalizations.swift\"\nfi\n";
+			shellScript = "if [[ -z $CI ]]; then\n    swift \"${SRCROOT}/${TARGET_NAME}/Tools/SyncLocalizations.swift\"\nfi\n";
 		};
 		34651EFA25E1B10000518C5A /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -367,7 +367,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${SRCROOT}/${TARGET_NAME}/Assets/Strings.generated.swift",
+				"${SRCROOT}/${TARGET_NAME}/Constants/Strings.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -387,11 +387,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${SRCROOT}/${TARGET_NAME}/Config/AppEnvironment.generated.swift",
+				"${SRCROOT}/${TARGET_NAME}/Environment/AppEnvironment.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "CONFIG_FILE=\"${HOME}/.calendr_build_env\"\nUPDATE_FILE=\"${SRCROOT}/${TARGET_NAME}/Config/AppEnvironment.generated.swift\"\n\necho \"// This file is generated. Do not edit manually.\\n\" > \"$UPDATE_FILE\"\necho \"import Foundation\\n\" >> \"$UPDATE_FILE\"\necho \"enum AppEnvironment: AppEnvironmentProviding {\\n\" >> \"$UPDATE_FILE\"\n\nif [ -f \"$CONFIG_FILE\" ]; then\n    while IFS='=' read -r key value || [ -n \"$key\" ]; do\n        echo \"    static let $key = Optional($value)\" >> \"$UPDATE_FILE\"\n    done < \"$CONFIG_FILE\"\nelse\n    echo \"    // No configuration file found\" >> \"$UPDATE_FILE\"\nfi\n\necho \"\\n}\" >> \"$UPDATE_FILE\"\n";
+			shellScript = "CONFIG_FILE=\"${HOME}/.calendr_build_env\"\nUPDATE_FILE=\"${SRCROOT}/${TARGET_NAME}/Environment/AppEnvironment.generated.swift\"\n\necho \"// This file is generated. Do not edit manually.\\n\" > \"$UPDATE_FILE\"\necho \"import Foundation\\n\" >> \"$UPDATE_FILE\"\necho \"enum AppEnvironment: AppEnvironmentProviding {\\n\" >> \"$UPDATE_FILE\"\n\nif [ -f \"$CONFIG_FILE\" ]; then\n    while IFS='=' read -r key value || [ -n \"$key\" ]; do\n        echo \"    static let $key = Optional($value)\" >> \"$UPDATE_FILE\"\n    done < \"$CONFIG_FILE\"\nelse\n    echo \"    // No configuration file found\" >> \"$UPDATE_FILE\"\nfi\n\necho \"\\n}\" >> \"$UPDATE_FILE\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -620,7 +620,7 @@
 				MARKETING_VERSION = 1.20.4;
 				PRODUCT_BUNDLE_IDENTIFIER = br.paker.Calendr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Calendr/Config/Calendr-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Calendr/ObjC/Calendr-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -652,7 +652,7 @@
 				MARKETING_VERSION = 1.20.4;
 				PRODUCT_BUNDLE_IDENTIFIER = br.paker.Calendr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Calendr/Config/Calendr-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Calendr/ObjC/Calendr-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

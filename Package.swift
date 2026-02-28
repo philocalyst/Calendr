@@ -35,36 +35,12 @@ let package = Package(
             ],
             path: "Calendr",
             exclude: [
-                "Config/Info.plist",
-                "Config/Calendr.entitlements",
-                "Config/swiftgen.yml",
-                "Config/Calendr-Bridging-Header.h",
+                "Config",
+                "Tools",
                 "ObjC",
-                "Assets/SyncLocalizations.swift"
             ],
             resources: [
-                .process("Assets/Images.xcassets"),
-                .process("Assets/en.lproj"),
-                .process("Assets/pt.lproj"),
-                .process("Assets/nl.lproj"),
-                .process("Assets/fr.lproj"),
-                .process("Assets/ru.lproj"),
-                .process("Assets/pl.lproj"),
-                .process("Assets/tr.lproj"),
-                .process("Assets/ko.lproj"),
-                .process("Assets/cs.lproj"),
-                .process("Assets/sv.lproj"),
-                .process("Assets/sk.lproj"),
-                .process("Assets/it.lproj"),
-                .process("Assets/es.lproj"),
-                .process("Assets/uk.lproj"),
-                .process("Assets/sq.lproj"),
-                .process("Assets/ja.lproj"),
-                .process("Assets/zh-Hans.lproj"),
-                .process("Assets/el.lproj"),
-                .process("Assets/zh-Hant-TW.lproj"),
-                .process("Assets/he.lproj"),
-                .process("Assets/de.lproj")
+                .process("Assets")
             ]
         ),
         .testTarget(
